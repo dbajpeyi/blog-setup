@@ -25,7 +25,7 @@ $ grunt build
 
 ```
 $ cd /etc/nginx/conf.d
-$ sudo ln -s https://github.com/caulagi/todo-client
+$ sudo ln -s /home/pcaulagi/jipu/src/todo-setup/todo.conf
 $ sudo nginx -t
 $ sudo nginx -s reload
 ```

@@ -9,7 +9,7 @@ For now, you have to complete the steps manually -
 ### Setup [todo-server](https://github.com/caulagi/todo-server)
 
 ```
-$ mkvirtualenv todo
+$ mkvirtualenv todo ; # or whatever you use to create a virtualenv
 $ pip install -r requirements.txt
 $ python runserver.py
 ```
@@ -25,6 +25,7 @@ $ grunt build
 ### Setup nginx
 
 ```
+$ sudo apt-get install nginx
 $ cd /etc/nginx/conf.d
 $ sudo ln -s /home/pcaulagi/jipu/src/todo-setup/todo.conf
 $ sudo nginx -t

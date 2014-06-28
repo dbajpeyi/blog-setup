@@ -1,0 +1,6 @@
+# Vagrant variables
+# -----------------
+user: vagrant
+owner: vagrant
+local: true
+hostname: todo.dev

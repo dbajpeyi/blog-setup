@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |devbox|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # devbox.vm.synced_folder "../data", "/vagrant_data"
+  devbox.vm.synced_folder ".", "/shared", disabled: true
 
   devbox.vm.hostname = "todo.dev"
 

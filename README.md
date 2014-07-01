@@ -33,5 +33,4 @@ found in the PATH variable.
 **A**  You are not inside the virtualenv
 
 
-
-**QED!**  Goto http://127.0.0.1:8002
+**QED!**  Goto http://127.0.0.1:8002.  Or login to the box with ```vagrant ssh```

@@ -1,10 +1,9 @@
 ---
 # Description: Installs nodejs from source
 #
-- name: Node.js | Checking installed version of node.js
-  shell: /usr/bin/test "$(node -v 2> /dev/null)" = v${node_version}
+- name: Node.js | Check if node is installed
+  local_action: stat path=/usr/local/bin/node
   register: wanted_version_installed
-  ignore_errors: True
 
 - name: Node.js | Fetching node.js source
   action: get_url url=http://nodejs.org/dist/v{{node_version}}/{{node_tarball}} dest=/tmp/

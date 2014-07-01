@@ -1,6 +1,14 @@
-# Vagrant variables
-# -----------------
+# Common variables
+# ----------------
 user: vagrant
 owner: vagrant
 local: true
 hostname: todo.dev
+
+root: /home/vagrant
+branch: master
+
+node_version: "0.10.28"
+node_prefix: "node-v{{node_version}}"
+node_tarball: "{{node_prefix}}.tar.gz"
+node_path: "/usr/local"

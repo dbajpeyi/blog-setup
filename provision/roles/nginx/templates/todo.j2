@@ -11,10 +11,10 @@ server {
     }
 
     location /todo {
-        alias /home/vagrant/src/todo-client/dist;
+        alias {{ root }}/todo-client/dist;
     }
 
     location /static {
-        alias /home/vagrant/src/todo-client/dist;
+        alias {{ root }}/todo-client/dist;
     }
 }

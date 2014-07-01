@@ -16,6 +16,7 @@
     - python-dev
     - python-pip
     - python-setuptools
+    - python-virtualenv
     - curl
     - wget
   sudo: yes

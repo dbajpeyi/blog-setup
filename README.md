@@ -3,25 +3,19 @@
 Magically bring up [todo-client](https://github.com/caulagi/todo-client)
 and [todo-server](https://github.com/caulagi/todo-server).
 
-* Install ansible.
+* Install virtualenv, vagrant, virtualbox and ansible
 
 ```
-$ mkvirtualenv todo
+$ sudo apt-get install python-virtualenv vagrant virtualbox
+$ virtualenv ~/venv/todo
+$ source ~/venv/todo/bin/activate
 $ pip install ansible
-```
-
-* Install vagrant and virtualbox
-
-```
-$ sudo apt-get install vagrant virtualbox
 ```
 
 * Set it rolling 
 
 ```
-$ workon todo
-# Ignore error about - failed to mount folders in Linux guest.
-$ vagrant up
+$ vagrant up ;# Ignore error about - failed to mount folders in Linux guest.
 $ vagrant provision
 ```
 

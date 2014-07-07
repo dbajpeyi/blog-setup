@@ -1,0 +1,8 @@
+[uwsgi]
+chdir = {{ root }}/todo-server
+virtualenv = {{ root }}/venv/todo
+processes = 4
+threads = 1
+socket = /tmp/uwsgi.sock
+daemonize = /var/log/uwsgi/todo.log
+vacuum = True

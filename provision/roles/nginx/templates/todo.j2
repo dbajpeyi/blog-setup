@@ -5,12 +5,13 @@ server {
     root /usr/share/nginx/www;
     index index.html index.htm;
 
-    location /app/ {
-        rewrite ^/app/(.*) /$1 break;
-        proxy_pass http://127.0.0.1:5000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    location = /app { rewrite ^ /app/; }
+    location /app { try_files $uri @app; }
+    location @app {
+      include uwsgi_params;
+      uwsgi_param SCRIPT_NAME /app;
+      uwsgi_modifier1 30;
+      uwsgi_pass unix:/tmp/uwsgi.sock;
     }
 
     location /todo {

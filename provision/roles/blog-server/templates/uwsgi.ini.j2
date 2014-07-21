@@ -1,0 +1,10 @@
+[uwsgi]
+chdir = {{ root }}/blog-server
+virtualenv = {{ root }}/venv/blog
+processes = 4
+threads = 1
+socket = /tmp/uwsgi.sock
+daemonize = /var/log/nginx/blog.log
+vacuum = True
+module = runserver
+callable = app

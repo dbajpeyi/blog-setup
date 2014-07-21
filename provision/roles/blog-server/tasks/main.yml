@@ -1,0 +1,32 @@
+---
+
+- name: install uwsgi
+  pip: name=uwsgi state=present
+  sudo: yes
+
+- name: create uwsgi directory
+  file: path=/etc/uwsgi state=directory mode=0755
+  sudo: yes
+
+- name: configure uwsgi
+  template: src=uwsgi.ini.j2 dest=/etc/uwsgi/blog.ini
+  sudo: yes
+
+- name: Checkout blog-server
+  git: repo=https://github.com/dbajpeyi/blog-server.git dest=blog-server
+
+- name: Setup blog-server
+  # Use full path: https://github.com/ansible/ansible/issues/6437
+  pip: >
+    requirements=/home/{{ user }}/blog-server/requirements.txt
+    virtualenv=/home/{{ user }}/venv/blog
+    state=present
+
+- name: Run tests for blog-server
+  shell: "/bin/bash /home/{{ user }}/venv/blog/bin/activate && cd /home/{{ user }}/blog-server && /home/{{ user }}/venv/blog/bin/py.test"
+
+- name: Start server with uwsgi
+  command: /usr/local/bin/uwsgi --ini /etc/uwsgi/blog.ini
+  sudo: yes
+  notify:
+    - restart nginx

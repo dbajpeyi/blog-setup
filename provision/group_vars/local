@@ -1,11 +1,11 @@
 # Common variables
 # ----------------
-user: vagrant
-owner: vagrant
+user : dbajpeyi 
+owner: dbajpeyi
 local: true
-hostname: todo.dev
+hostname: blog.dev
 
-root: /home/vagrant
+root: /home/{{user}}
 branch: master
 prefix: "/usr/local"
 

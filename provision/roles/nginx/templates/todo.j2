@@ -1,6 +1,6 @@
 server {
     listen 80;
-    access_log  /var/log/nginx/todo-access.log;
+    access_log  /var/log/nginx/blog-access.log;
 
     root /usr/share/nginx/www;
     index index.html index.htm;
@@ -14,12 +14,12 @@ server {
       uwsgi_pass unix:/tmp/uwsgi.sock;
     }
 
-    location /todo {
-        alias {{ root }}/todo-client/dist;
+    location /blog {
+        alias {{ root }}/blog-client/dist;
     }
 
     location /static {
-        alias {{ root }}/todo-client/dist;
+        alias {{ root }}/blog-client/dist;
     }
 
     location / {

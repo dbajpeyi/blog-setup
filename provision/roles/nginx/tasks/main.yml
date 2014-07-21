@@ -13,7 +13,7 @@
     - start nginx
 
 - name: Copy configuration file
-  template: src=todo.j2 dest=/etc/nginx/conf.d/todo.conf mode=0644
+  template: src=blog.j2 dest=/etc/nginx/conf.d/blog.conf mode=0644
   sudo: yes
   notify:
     - start nginx

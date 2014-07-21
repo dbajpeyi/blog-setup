@@ -1,14 +1,14 @@
-# todo-setup
+# blog-setup
 
-Magically bring up [todo-client](https://github.com/caulagi/todo-client)
-and [todo-server](https://github.com/caulagi/todo-server).
+Magically bring up [blog-client](https://github.com/caulagi/blog-client)
+and [blog-server](https://github.com/caulagi/blog-server).
 
 * Install virtualenv, vagrant, virtualbox and ansible
 
 ```
 $ sudo apt-get install python-virtualenv vagrant virtualbox
-$ virtualenv ~/venv/todo
-$ source ~/venv/todo/bin/activate
+$ virtualenv ~/venv/blog
+$ source ~/venv/blog/bin/activate
 $ pip install ansible
 ```
 
@@ -27,4 +27,4 @@ found in the PATH variable.
 **A**  You are not inside the virtualenv
 
 
-**QED!**  Goto http://127.0.0.1:8002/todo.  Or login to the box with ```vagrant ssh```
+**QED!**  Goto http://127.0.0.1:8002/blog.  Or login to the box with ```vagrant ssh```

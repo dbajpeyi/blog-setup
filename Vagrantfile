@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |devbox|
   # argument is a set of non-required options.
   devbox.vm.synced_folder ".", "/shared", disabled: true
 
-  devbox.vm.hostname = "todo.dev"
+  devbox.vm.hostname = "blog.dev"
 
   devbox.vm.provision "ansible" do |ansible|
     ansible.playbook = "provision/site.yml"

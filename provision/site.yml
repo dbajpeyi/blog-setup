@@ -7,5 +7,5 @@
     - nginx
     - mongo
     - nodejs
-    - todo-server
-    - todo-client
+    - blog-server
+    - blog-client

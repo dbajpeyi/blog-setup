@@ -1,0 +1,29 @@
+server {
+    listen 80;
+    access_log  /var/log/nginx/blog-access.log;
+
+    root /usr/share/nginx/www;
+    index index.html index.htm;
+
+    location = /app { rewrite ^ /app/; }
+    location /app { try_files $uri @app; }
+    location @app {
+      include uwsgi_params;
+      uwsgi_param SCRIPT_NAME /app;
+      uwsgi_modifier1 30;
+      uwsgi_pass unix:/tmp/uwsgi.sock;
+    }
+
+    location /blog {
+        alias {{ root }}/blog-client/dist;
+    }
+
+    location /static {
+        alias {{ root }}/blog-client/dist;
+    }
+
+    location / {
+        autoindex on;
+        try_files $uri $uri/ /index.html;
+    }
+}
